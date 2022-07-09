@@ -1,5 +1,11 @@
 {
+    "name": "h4shk4t/lms",
+    "description": "Library Management Service",
     "require": {
-        "torophp/torophp": "dev-master"
+        "torophp/torophp": "dev-master",
+        "twig/twig": "^3.0"
+    },
+    "autoload": {
+        "classmap": ["app"]
     }
 }

@@ -1,0 +1,50 @@
+{% extends "templates/partials/base.twig" %}
+
+{% block title %} LMS - Login {% endblock %}
+
+{% block body %}
+<header>
+    <nav>
+        <ul class="navbar">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li>
+                <a href="/signout"><button>Signout</button></a>
+            </li>
+            </ul>
+        </nav>
+</header>
+<div class="text-center mt-5">
+    <form action="browse" method="POST" style="max-width: 480px;margin:auto;">
+        <h1 class="h3 mb-3 font-weight-normal">Browse Books</h1>
+        <input type="text" name="name" placeholder="Name" class="form-control">
+        <input type="text" name="author" placeholder="Author" class="form-control">
+        <input type="submit" value="Search" class="btn btn-primary btn-block btn-lg">
+    </form>
+</div>
+<div class="results text-center">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Book Name</th>
+                <th scope="col">Author</th>
+                <th scope="col">Availability</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Get info</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <th scope="row">{{ book.NAME }}</th>
+                    <td>{{ book.AUTHOR }}</td>
+                    <td>{{ book.STATUS }}</td>
+                    <td>{{ book.QUANTITY }}</td>
+                    <td><a href={{ "book/" + book.BOOKID }}><button class="btn btn-block">More Info</button></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

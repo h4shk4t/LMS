@@ -4,11 +4,17 @@ require __DIR__ ."/../vendor/autoload.php";
 
 ToroHook::add("404", function () {
     echo "404 - Not found!";
-})
+});
 
 Toro::serve(array(
-    "/register" => "RegisterController",
-    "/login" => "LoginController"
+    "/register" => "\Controller\RegisterController",
+    "/login" => "\Controller\LoginController",
+    "/" => "\Controller\BookController",
+    "/book/:number" => "\Controller\BookController",
+    "/book/:number/:number" => "\Controller\BookController",
+    "/book/:number/:number/return" => "\Controller\BookController",
+    "/add" => "\Controller\addBookController",
+    "/books" => "\Controller\adminBooksController",
 ));
 
 ?>
