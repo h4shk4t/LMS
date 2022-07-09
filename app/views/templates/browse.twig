@@ -30,7 +30,7 @@
                 <th scope="col">Book Name</th>
                 <th scope="col">Author</th>
                 <th scope="col">Availability</th>
-                <th scope="col">Quantity</th>
+                <th scope="col">Type</th>
                 <th scope="col">Get info</th>
             </tr>
         </thead>
@@ -40,7 +40,7 @@
                     <th scope="row">{{ book.NAME }}</th>
                     <td>{{ book.AUTHOR }}</td>
                     <td>{{ book.STATUS }}</td>
-                    <td>{{ book.QUANTITY }}</td>
+                    <td>{{ book.TYPE }}</td>
                     <td><a href={{ "book/" + book.BOOKID }}><button class="btn btn-block">More Info</button></a></td>
                 </tr>
             {% endfor %}
