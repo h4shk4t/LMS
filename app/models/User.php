@@ -33,6 +33,13 @@ class User{
             echo "Incorrect Password";
         }
     }
+    public static function getUsersBID(){
+        $db = DB::get_instance();
+        $stmnt = $db->prepare("SELECT * FROM BOOKS WHERE BOOKID != NULL");
+        $stmnt->execute();
+        $rows = $stmnt->fetch();
+        return $rows;
+    }
 }
 
 ?>

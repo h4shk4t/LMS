@@ -19,9 +19,9 @@
                     <td>{{ books[0].STATUS }}</td>
                     <td>{{ books[0].TYPE }}</td>
                     {%if (books[0].STATUS == "AVAILABLE" and book.ID != user.BOOKID) %}
-                        <td><a href={{ "/book/" +book.ID + "/" + user.USERID }} ><button>Request Book</button></a></td> 
+                        <td><a href="/book/{{ book.ID }}/{{ user.USERID }}" ><button>Request Book</button></a></td> 
                     {% elseif books[0].ID==user.BOOKID %}
-                        <td> <a href= {{ "/book/"+book.ID+"/"+user.USERID+"/return"}} ><button onclick="location.href='/book'">Return</button></td></a>
+                        <td> <a href= "/book/{{ book.ID }}/{{ user.USERID }}/return" ><button onclick="location.href='/book'">Return</button></td></a>
                     {% else %}
                         <td><button disabled>Book Unavailable</button></td>
                     {% endif %}

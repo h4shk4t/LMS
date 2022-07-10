@@ -15,7 +15,9 @@ Toro::serve(array(
     "/book/:number/:number/return" => "\Controller\BookController",
     "/add" => "\Controller\addBookController",
     "/books" => "\Controller\adminBooksController",
-    "/dashboard" => "\Controller\adminDashboardController"
+    "/dashboard" => "\Controller\adminDashboardController",
+    "/listIssues" => "\Controller\listIssuesController",
+    
 ));
 
 ?>
