@@ -9,12 +9,13 @@ ToroHook::add("404", function () {
 Toro::serve(array(
     "/register" => "\Controller\RegisterController",
     "/login" => "\Controller\LoginController",
-    "/" => "\Controller\BookController",
+    "/" => "\Controller\BrowseController",
     "/book/:number" => "\Controller\BookController",
     "/book/:number/:number" => "\Controller\BookController",
     "/book/:number/:number/return" => "\Controller\BookController",
     "/add" => "\Controller\addBookController",
     "/books" => "\Controller\adminBooksController",
+    "/dashboard" => "\Controller\adminDashboardController"
 ));
 
 ?>

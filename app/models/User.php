@@ -15,14 +15,22 @@ class User{
         $stmnt = $db->prepare("SELECT USERNAME,HASH FROM USERS WHERE USERNAME = (:username)");
         $stmnt->execute(array(":username"=>$username));
         $row = $stmnt->fetch();
-        var_dump($row["HASH"]);
-        echo "<br>";
-        var_dump($hash);
+        //var_dump($row["HASH"]);
+        //echo "<br>";
+        //var_dump($hash);
         if (password_verify($hash,$row["HASH"])){
+            session_start();
             $_SESSION["Username"] = $username;
             $_SESSION["isLoggedIn"] = 1;
             $_SESSION["isAdmin"] = 0;
+            //var_dump($_SESSION["Username"]);
+            //var_dump($_SESSION["isLoggedIn"]);
+            //var_dump($_SESSION["isAdmin"]);
+            //die();  
             header('Location: /');
+        }
+        else{
+            echo "Incorrect Password";
         }
     }
 }

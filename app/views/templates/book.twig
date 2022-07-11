@@ -1,6 +1,6 @@
 {% extends "templates/partials/base.twig" %}
 
-{% block title %} LMS - {{book.NAME}} {% endblock %}
+{% block title %} LMS - {{books[0].NAME}} {% endblock %}
 
 {% block body %}
 <main>
@@ -10,17 +10,17 @@
                     <th scope="col">Name</th>
                     <th scope="col">Author</th>
                     <th scope="col">Status</th>
-                <th scope="col">Quantity</th>
+                <th scope="col">Type</th>
                     <th scope="col">Option</th>
                 </thead>
                 <tr>
-                    <td>{{ book.NAME }}</td>
-                    <td>{{ book.AUTHOR }}</td>
-                    <td>{{ book.STATUS }}</td>
-                    <td>{{ book.QUANTITY }}</td>
-                    {%if (book.STATUS === "AVAILABLE" && book.ID != user.BOOKID) %}
+                    <td>{{ books[0].NAME }}</td>
+                    <td>{{ books[0].AUTHOR }}</td>
+                    <td>{{ books[0].STATUS }}</td>
+                    <td>{{ books[0].TYPE }}</td>
+                    {%if (books[0].STATUS == "AVAILABLE" and book.ID != user.BOOKID) %}
                         <td><a href={{ "/book/" +book.ID + "/" + user.USERID }} ><button>Request Book</button></a></td> 
-                    {% elseif book.ID===user.BOOKID %}
+                    {% elseif books[0].ID==user.BOOKID %}
                         <td> <a href= {{ "/book/"+book.ID+"/"+user.USERID+"/return"}} ><button onclick="location.href='/book'">Return</button></td></a>
                     {% else %}
                         <td><button disabled>Book Unavailable</button></td>

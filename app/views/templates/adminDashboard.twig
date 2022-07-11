@@ -1,0 +1,23 @@
+{% extends "templates/partials/base.twig" %}
+
+{% block title %} LMS - Dashboard {% endblock %}
+
+{% block body %}
+<header>
+    <nav>
+        <ul class="navbar">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li>
+                <a href="/signout"><button>Signout</button></a>
+            </li>
+            </ul>
+    </nav>
+</header>
+<div class="text-center font-weight-normal" style="max-width: 480px;margin:auto;">
+    <a href="/list"><button class="btn btn-primary btn-block btn-lg mt-2">List</button></a>
+    <a href="/add"><button class="btn btn-primary btn-block btn-lg mt-2">Add</button></a>
+    <a href="/listIssues"><button class="btn btn-primary btn-block btn-lg mt-2">List Users with Issues</button></a>
+</div> 
+{% endblock %}

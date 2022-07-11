@@ -41,7 +41,7 @@
                     <td>{{ book.AUTHOR }}</td>
                     <td>{{ book.STATUS }}</td>
                     <td>{{ book.TYPE }}</td>
-                    <td><a href={{ "book/" + book.BOOKID }}><button class="btn btn-block">More Info</button></a></td>
+                    <td><a href='book/{{ book.BOOKID }}'><button class="btn btn-block">More Info</button></a></td>
                 </tr>
             {% endfor %}
         </tbody>

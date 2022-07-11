@@ -1,0 +1,41 @@
+<div class="results">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Book ID</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Author</th>
+                <th scope="col">Status</th>
+                <th scope="col">Response</th>
+                <th scope="col"></th>
+                <th scope="col">More info</th>
+            </tr>
+        </thead>
+        {% for book in books %}
+            <tr>
+                <th>{{ book.BOOKID }}</th>
+                <td>{{ book.NAME }}</td>
+                <td>{{ book.AUTHOR }}</td>
+                <td>{{ book.STATUS }}</td>
+                <% if (book.STATUS === 'WAITING') { %>
+                    <td>{{ book.USERID }}</td>
+                    <td><a href={{ "/approve/" + book.BOOKID }}><button class="btn btn-primary btn-block btn-lg mt-2">Approve</button></a></td>  
+                    <td><a href={{ "/reject/" + book.BOOKID }}><button class="btn btn-primary btn-block btn-lg mt-2">Reject</button></a></td>
+                <% } else if (book.STATUS == 'RETURN') { %>
+                    <td></td>
+                    <td><a href={{ "/approve/return/" + book.BOOKID }}><button class="btn btn-primary btn-block btn-lg mt-2">Approve</button></a></td>  
+                    <td><a href={{ "/reject/" + book.BOOKID }}><button class="btn btn-primary btn-block btn-lg mt-2">Reject</button></a></td>
+                <% } else if (book.STATUS == 'UNAVAILABLE') { %>
+                    <td></td>
+                    <td>BOOK UNAVAILABLE</td>
+                    <td></td>
+                <% } else{%>
+                    <td></td>
+                    <td><a href={{ "/remove/" + book.BOOKID }}><button class="btn">Remove from library</button></a></td>
+                    <td></td>
+                <% } }}
+                <td><a href={{ "book/" + book.BOOKID }}><button class="btn">More Info</button></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
