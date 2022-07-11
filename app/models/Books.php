@@ -18,10 +18,20 @@ class Books{
     }
     public static function getBook($bookID){
         $db = DB::get_instance();
-        $stmnt = $db->prepare("SELECT NAME, AUTHOR, STATUS, TYPE, ISBN FROM BOOKS WHERE BOOKID=(:bookID)");
+        $stmnt = $db->prepare("SELECT BOOKID,NAME, AUTHOR, STATUS, TYPE, ISBN FROM BOOKS WHERE BOOKID=(:bookID)");
         $stmnt->execute(array(":bookID"=>$bookID));
         $rows = $stmnt->fetchAll();
         return $rows;
+    }
+    public static function returnBook($bookID){
+        $db = DB::get_instance();
+        $stmnt = $db->prepare('UPDATE BOOKS SET STATUS="RETURN" WHERE BOOKID=(:bookID)');
+        $stmnt->execute(array(":bookID"=>$bookID));
+    }
+    public static function requestBook($bookID){
+        $db = DB::get_instance();
+        $stmnt = $db->prepare('UPDATE BOOKS SET STATUS="WAITING" WHERE BOOKID=(:bookID)');
+        $stmnt->execute(array(":bookID"=>$bookID));
     }
 }
 

@@ -11,13 +11,12 @@ Toro::serve(array(
     "/login" => "\Controller\LoginController",
     "/" => "\Controller\BrowseController",
     "/book/:number" => "\Controller\BookController",
-    "/book/:number/:number" => "\Controller\BookController",
-    "/book/:number/:number/return" => "\Controller\BookController",
+    "/book/request/:number" => "\Controller\RequestController",
+    "/book/return/:number" => "\Controller\ReturnController",
     "/add" => "\Controller\addBookController",
-    "/books" => "\Controller\adminBooksController",
+    "/list" => "\Controller\adminBooksController",
     "/dashboard" => "\Controller\adminDashboardController",
     "/listIssues" => "\Controller\listIssuesController",
-    
 ));
 
 ?>

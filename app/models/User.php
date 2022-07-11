@@ -22,7 +22,12 @@ class User{
             session_start();
             $_SESSION["Username"] = $username;
             $_SESSION["isLoggedIn"] = 1;
-            $_SESSION["isAdmin"] = 0;
+            if($username == 'admin'){
+                $_SESSION["isAdmin"] = 1;
+            }
+            else{
+                $_SESSION["isAdmin"] = 0;
+            }
             //var_dump($_SESSION["Username"]);
             //var_dump($_SESSION["isLoggedIn"]);
             //var_dump($_SESSION["isAdmin"]);
@@ -39,6 +44,24 @@ class User{
         $stmnt->execute();
         $rows = $stmnt->fetch();
         return $rows;
+    }
+    public static function getCurrentUser(){
+        session_start();
+        $db = DB::get_instance();
+        $stmnt = $db->prepare("SELECT * FROM USERS WHERE USERNAME = (:username)");
+        $stmnt->execute(array(":username"=>$_SESSION["Username"]));
+        $rows = $stmnt->fetch();
+        return $rows;
+    }
+    public static function returnBook($userID){
+        $db = DB::get_instance();
+        $stmnt = $db->prepare("UPDATE USERS SET BOOKID = NULL WHERE USERNAME= (:userID);");
+        $stmnt->execute(array(":userID"=>$userID));
+    }
+    public static function requestBook($userID,$bookID){
+        $db = DB::get_instance();
+        $stmnt = $db->prepare("UPDATE USERS SET BOOKID = (:bookID) WHERE USERNAME = (:userID)");
+        $stmnt->execute(array(":userID"=>$userID,":bookID"=>$bookID));
     }
 }
 

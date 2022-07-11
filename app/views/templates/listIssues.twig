@@ -13,14 +13,14 @@
                 <th scope="col">Book ID</th>
             </tr>
         </thead>
-        <% users.forEach(function(user) { %>
+        {% for user in users %}
             <tr>
-                <th><%= user.USERID %></th>
-                <td><%= user.NAME %></td>
-                <td><%= user.ENO %></td>
-                <td><%= user.BOOKID %></td>
+                <th>{{ user.USERID }}</th>
+                <td>{{ user.NAME }}</td>
+                <td>{{ user.ENO }}</td>
+                <td>{{ user.BOOKID }}</td>
             </tr>
-        <% }); %>
+        {% endfor %}
     </table>
 </div>
 {% endblock %}

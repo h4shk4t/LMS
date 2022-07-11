@@ -7,6 +7,7 @@
         <div class="book">
             <table class="table">
                 <thead>
+                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Author</th>
                     <th scope="col">Status</th>
@@ -14,14 +15,15 @@
                     <th scope="col">Option</th>
                 </thead>
                 <tr>
+                    <td>{{ books[0].BOOKID }}</td>
                     <td>{{ books[0].NAME }}</td>
                     <td>{{ books[0].AUTHOR }}</td>
                     <td>{{ books[0].STATUS }}</td>
                     <td>{{ books[0].TYPE }}</td>
-                    {%if (books[0].STATUS == "AVAILABLE" and book.ID != user.BOOKID) %}
-                        <td><a href="/book/{{ book.ID }}/{{ user.USERID }}" ><button>Request Book</button></a></td> 
-                    {% elseif books[0].ID==user.BOOKID %}
-                        <td> <a href= "/book/{{ book.ID }}/{{ user.USERID }}/return" ><button onclick="location.href='/book'">Return</button></td></a>
+                    {%if (books[0].STATUS == "AVAILABLE" and books[0].BOOKID != user.BOOKID) %}
+                        <td><a href="/book/request/{{ books[0].BOOKID }}" ><button>Request Book</button></a></td> 
+                    {% elseif books[0].BOOKID==user.BOOKID %}
+                        <td> <a href= "/book/return/{{ books[0].BOOKID }}" ><button onclick="location.href='/book'">Return</button></td></a>
                     {% else %}
                         <td><button disabled>Book Unavailable</button></td>
                     {% endif %}

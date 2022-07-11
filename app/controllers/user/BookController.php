@@ -8,7 +8,7 @@ class BookController{
         if ($_SESSION["isLoggedIn"] == 1){
             echo \View\Loader::make()->render("templates/book.twig", array(
                 "books" => \Model\Books::getBook($bookID),
-                //"user" => \Model\User::getUser()
+                "user" => \Model\User::getCurrentUser()
             ));
         }
         else{
