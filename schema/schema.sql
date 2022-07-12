@@ -1,0 +1,86 @@
+-- MariaDB dump 10.19  Distrib 10.5.15-MariaDB, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: LMS
+-- ------------------------------------------------------
+-- Server version	10.5.15-MariaDB-0+deb11u1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `BOOKS`
+--
+
+DROP TABLE IF EXISTS `BOOKS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `BOOKS` (
+  `BOOKID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(255) DEFAULT NULL,
+  `AUTHOR` varchar(255) DEFAULT NULL,
+  `STATUS` varchar(40) DEFAULT NULL,
+  `TYPE` varchar(40) DEFAULT NULL,
+  `ISBN` char(13) NOT NULL,
+  PRIMARY KEY (`BOOKID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BOOKS`
+--
+
+LOCK TABLES `BOOKS` WRITE;
+/*!40000 ALTER TABLE `BOOKS` DISABLE KEYS */;
+INSERT INTO `BOOKS` VALUES (1,'Harry Potter','JK Rowling','AVAILABLE','Fiction','1234567890123'),(2,'Hacking','Jon Erickson','AVAILABLE','Informative','0987654321123'),(3,'Twelfth Night','Shakespeare','AVAILABLE','Classic','6789012345123'),(4,'Zero to One','Peter Thiel','AVAILABLE','Informative','7894561230123'),(5,'Harry Potter','JK Rowling','AVAILABLE','Fiction','1234567890123'),(6,'Romeo and Juliet','Shakespeare','AVAILABLE','Classic','4567891230123');
+/*!40000 ALTER TABLE `BOOKS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `USERS`
+--
+
+DROP TABLE IF EXISTS `USERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `USERS` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `USERNAME` varchar(255) NOT NULL,
+  `NAME` varchar(255) DEFAULT NULL,
+  `ENO` char(8) NOT NULL,
+  `HASH` varchar(100) NOT NULL,
+  `ADMIN` int(11) DEFAULT NULL,
+  `BOOKID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `BOOKID` (`BOOKID`),
+  CONSTRAINT `USERS_ibfk_1` FOREIGN KEY (`BOOKID`) REFERENCES `BOOKS` (`BOOKID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `USERS`
+--
+
+LOCK TABLES `USERS` WRITE;
+/*!40000 ALTER TABLE `USERS` DISABLE KEYS */;
+INSERT INTO `USERS` VALUES (4,'cyberboy','Ashutosh','21114040','$2y$10$Kz73U/tFFQgyjr6uB9pwceBvYHPezK1c7UgaNA4uTk8wdoZsU1VD2',0,NULL),(5,'cyberboy123','Ash','21114000','$2y$10$GtP5/gYaV/hQZFL/WY.4TuTskxlqI1UaCpvAfWufLDvLz5BM8uDk2',0,NULL),(6,'admin','Ashutosh','11111111','$2y$10$PLxP4huC9QRVqasGw4Iz2eXfcm6y9cGuiobBAHDdFSrceFLp8virq',1,NULL);
+/*!40000 ALTER TABLE `USERS` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-07-12  7:53:34
