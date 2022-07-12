@@ -40,9 +40,9 @@ class User{
     }
     public static function getUsersBID(){
         $db = DB::get_instance();
-        $stmnt = $db->prepare("SELECT * FROM BOOKS WHERE BOOKID != NULL");
+        $stmnt = $db->prepare("SELECT * FROM USERS WHERE BOOKID is not NULL");
         $stmnt->execute();
-        $rows = $stmnt->fetch();
+        $rows = $stmnt->fetchAll();
         return $rows;
     }
     public static function getCurrentUser(){

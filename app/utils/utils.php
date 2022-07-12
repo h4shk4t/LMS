@@ -12,6 +12,8 @@ class utils{
                 }
                 else{
                     echo "Unauthorised";
+                    header("Location: /login");
+                    die();
                 }
             }
         }
