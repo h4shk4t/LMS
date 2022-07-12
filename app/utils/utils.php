@@ -5,7 +5,7 @@ namespace Utils;
 class utils{
     public static function check($checkAdmin){
         session_start();
-        if($_SESSION["Username"]){
+        if(isset($_SESSION["Username"])){
             if($checkAdmin == 1){
                 if($_SESSION["isAdmin"] == 1){
 
@@ -15,6 +15,9 @@ class utils{
                     header("Location: /login");
                     die();
                 }
+            }
+            else{
+                $_SESSION["isAdmin"] = 0;
             }
         }
         else{
