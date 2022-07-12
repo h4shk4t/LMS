@@ -11,7 +11,6 @@ class BrowseController{
         else{
             echo \View\Loader::make()->render("templates/browse.twig", array(
                 "books" => \Model\Books::getBooks(),
-                //"user" => \Model\User::getUser()
             ));
         }
 }

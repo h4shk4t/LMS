@@ -8,7 +8,7 @@ class utils{
         if(isset($_SESSION["Username"])){
             if($checkAdmin == 1){
                 if($_SESSION["isAdmin"] == 1){
-
+                    echo "Authorised";
                 }
                 else{
                     echo "Unauthorised";

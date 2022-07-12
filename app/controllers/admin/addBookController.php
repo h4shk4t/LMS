@@ -9,10 +9,10 @@ class addBookController{
     }
     public static function post(){
         \Utils\utils::check(1);
-        $bname = $_POST["bname"];
+        $bookName = $_POST["bookName"];
         $author = $_POST["author"];
         $type = $_POST["type"];
         $isbn = $_POST["isbn"];
-        \Model\Books::addBook($bname,$author,$type,$isbn);
+        \Model\Books::addBook($bookName,$author,$type,$isbn);
     }
 }
