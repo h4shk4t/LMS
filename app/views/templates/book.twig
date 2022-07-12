@@ -3,6 +3,18 @@
 {% block title %} LMS - {{books[0].NAME}} {% endblock %}
 
 {% block body %}
+<header>
+    <nav>
+        <ul class="navbar form-inline">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li>
+                <a class ="nav-link" href="/signout"><button>Signout</button></a>
+            </li>
+        </ul>
+    </nav>
+</header>
 <main>
         <div class="book">
             <table class="table">

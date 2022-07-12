@@ -17,6 +17,10 @@ Toro::serve(array(
     "/list" => "\Controller\adminBooksController",
     "/dashboard" => "\Controller\adminDashboardController",
     "/listIssues" => "\Controller\listIssuesController",
+    "/approve/:number" => "\Controller\ApproveController",
+    "/approve/return/:number" => "\Controller\approveReturnController",
+    "/reject/:number" => "\Controller\approveReturnController",
+    "/signout" => "\Controller\SignoutController"
 ));
 
 ?>

@@ -33,6 +33,16 @@ class Books{
         $stmnt = $db->prepare('UPDATE BOOKS SET STATUS="WAITING" WHERE BOOKID=(:bookID)');
         $stmnt->execute(array(":bookID"=>$bookID));
     }
+    public static function approve($bookID){
+        $db = DB::get_instance();
+        $stmnt = $db->prepare('UPDATE BOOKS SET STATUS="UNAVAILABLE" WHERE BOOKID=(:bookID)');
+        $stmnt->execute(array(":bookID"=>$bookID));
+    }
+    public static function approveReturn($bookID){
+        $db = DB::get_instance();
+        $stmnt = $db->prepare('UPDATE BOOKS SET STATUS="AVAILABLE" WHERE BOOKID=(:bookID)');
+        $stmnt->execute(array(":bookID"=>$bookID));
+    }
 }
 
 ?>
