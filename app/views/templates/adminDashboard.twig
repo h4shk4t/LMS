@@ -4,20 +4,22 @@
 
 {% block body %}
 <header>
-    <nav>
-        <ul class="navbar">
+    <nav class="nav justify-content-center" id="navbar">
+        <ul class="navbar form-inline" id="nav-items">
             <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/"><button class="btn btn-primary btn-block">Home</button></a>
             </li>
-            <li>
-                <a href="/signout"><button>Signout</button></a>
+            <li class="nav-item">
+                <a class ="nav-link" href="/signout"><button class="btn btn-primary btn-block">Signout</button></a>
             </li>
-            </ul>
+        </ul>
     </nav>
 </header>
-<div class="text-center font-weight-normal" style="max-width: 480px;margin:auto;">
-    <a href="/list"><button class="btn btn-primary btn-block btn-lg mt-2">List</button></a>
-    <a href="/add"><button class="btn btn-primary btn-block btn-lg mt-2">Add</button></a>
-    <a href="/listIssues"><button class="btn btn-primary btn-block btn-lg mt-2">List Users with Issues</button></a>
-</div> 
+<container>
+    <div class="text-center font-weight-normal" style="max-width: 600px;margin:auto;">
+        <a href="/list"><button class="btn btn-primary btn-block btn-lg mt-2" id="admin-items">List</button></a>
+        <a href="/add"><button class="btn btn-primary btn-block btn-lg mt-2" id="admin-items">Add</button></a>
+        <a href="/listIssues"><button class="btn btn-primary btn-block btn-lg mt-2" id="admin-items" >List Users with Issues</button></a>
+    </div> 
+</container>
 {% endblock %}

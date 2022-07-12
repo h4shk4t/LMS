@@ -44,5 +44,3 @@ class Books{
         $stmnt->execute(array(":bookID"=>$bookID));
     }
 }
-
-?>

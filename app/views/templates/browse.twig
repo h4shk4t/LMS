@@ -1,16 +1,16 @@
 {% extends "templates/partials/base.twig" %}
 
-{% block title %} LMS - Login {% endblock %}
+{% block title %} LMS - Browse {% endblock %}
 
 {% block body %}
 <header>
-    <nav>
-        <ul class="navbar form-inline">
+    <nav class="nav justify-content-center" id="navbar">
+        <ul class="navbar form-inline" id="nav-items">
             <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/"><button class="btn btn-primary btn-block">Home</button></a>
             </li>
-            <li>
-                <a class ="nav-link" href="/signout"><button>Signout</button></a>
+            <li class="nav-item">
+                <a class ="nav-link" href="/signout"><button class="btn btn-primary btn-block">Signout</button></a>
             </li>
         </ul>
     </nav>
@@ -41,7 +41,7 @@
                     <td>{{ book.AUTHOR }}</td>
                     <td>{{ book.STATUS }}</td>
                     <td>{{ book.TYPE }}</td>
-                    <td><a href='book/{{ book.BOOKID }}'><button class="btn btn-block">More Info</button></a></td>
+                    <td><a href='book/{{ book.BOOKID }}'><button class="btn btn-primary btn-block">More Info</button></a></td>
                 </tr>
             {% endfor %}
         </tbody>

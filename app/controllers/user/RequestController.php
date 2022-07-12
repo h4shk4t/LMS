@@ -10,5 +10,3 @@ class RequestController{
         header('Location: /');
     }
 }
-
-?>

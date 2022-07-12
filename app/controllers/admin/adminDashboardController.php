@@ -8,5 +8,3 @@ class adminDashboardController{
         echo \View\Loader::make()->render("templates/adminDashboard.twig");
     }
 }
-
-?>
