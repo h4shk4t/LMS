@@ -18,6 +18,7 @@ class RegisterController{
         }
         $hash = password_hash($_POST["password"], PASSWORD_DEFAULT, array('cost' => 10));
         \Model\User::register($username,$name,$enrollmentNumber,$hash);
+        echo "Succesfully registered! Login <a href='/login'>here</a>";
     }
 }
 

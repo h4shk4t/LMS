@@ -4,7 +4,7 @@ namespace Controller;
 
 class adminDashboardController{
     public static function get(){
-        \Utils\utils::check(1);
+        \Utils\utils::check("admin");
         echo \View\Loader::make()->render("templates/adminDashboard.twig");
     }
 }

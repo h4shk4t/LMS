@@ -6,7 +6,7 @@ class utils{
     public static function check($checkAdmin){
         session_start();
         if(isset($_SESSION["Username"])){
-            if($checkAdmin == 1){
+            if($checkAdmin == "admin"){
                 if($_SESSION["isAdmin"] == 1){
                     echo "Authorised";
                 }

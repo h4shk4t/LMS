@@ -11,8 +11,22 @@ class LoginController{
     public function post(){
         $username = $_POST["username"];
         $password = $_POST["password"];
-        \Model\User::login($username,$password);
-        //\Model\Register::register($username,$name,$eno,$hash);
+        $row = \Model\User::login($username,$password);
+        if (password_verify($password,$row["HASH"])){
+            session_start();
+            $_SESSION["Username"] = $username;
+            $_SESSION["isLoggedIn"] = 1;
+            if($username == 'admin'){
+                $_SESSION["isAdmin"] = 1;
+            }
+            else{
+                $_SESSION["isAdmin"] = 0;
+            }
+            header('Location: /');
+        }
+        else{
+            echo "Incorrect Password";
+        }
     }
 }
 

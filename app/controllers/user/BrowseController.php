@@ -4,7 +4,7 @@ namespace Controller;
 
 class BrowseController{
     public static function get(){
-        \Utils\utils::check(0);
+        \Utils\utils::check("user");
         if($_SESSION["isAdmin"]==1){
             header('Location: /dashboard');
         }

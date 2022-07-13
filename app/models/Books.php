@@ -14,8 +14,7 @@ class Books{
     $db = DB::get_instance();
         $statement = $db->prepare("INSERT INTO BOOKS (NAME,AUTHOR,STATUS,TYPE,ISBN) VALUES (:bname,:author,:status,:type,:isbn)");
         $statement->execute(array(":bname"=>$bname,":author"=>$author,":status"=>"AVAILABLE",":type"=>$type,":isbn"=>$isbn));
-        echo "Book successfully added! Add a new book <a href='/add'>here</a>";
-    }
+        }
     public static function getBook($bookID){
         $db = DB::get_instance();
         $statement = $db->prepare("SELECT BOOKID,NAME, AUTHOR, STATUS, TYPE, ISBN FROM BOOKS WHERE BOOKID=(:bookID)");

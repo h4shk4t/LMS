@@ -8,28 +8,13 @@ class User{
         $statement = $db->prepare("INSERT INTO USERS (USERNAME, NAME, ENO, HASH, ADMIN) VALUES (:username,:name,:eno,:hash,:admin)");
         //Data to be inserted
         $statement->execute(array(":username" => $username,":name" => $name,":eno" => $eno,":hash" => $hash,":admin" => 0));
-        echo "Succesfully registered! Login <a href='/login'>here</a>";
     }
     public static function login($username,$hash){
         $db = DB::get_instance();
         $statement = $db->prepare("SELECT USERNAME,HASH FROM USERS WHERE USERNAME = (:username)");
         $statement->execute(array(":username"=>$username));
         $row = $statement->fetch();
-        if (password_verify($hash,$row["HASH"])){
-            session_start();
-            $_SESSION["Username"] = $username;
-            $_SESSION["isLoggedIn"] = 1;
-            if($username == 'admin'){
-                $_SESSION["isAdmin"] = 1;
-            }
-            else{
-                $_SESSION["isAdmin"] = 0;
-            }
-            header('Location: /');
-        }
-        else{
-            echo "Incorrect Password";
-        }
+        return $row;
     }
     public static function getUsersBID(){
         $db = DB::get_instance();
