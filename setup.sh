@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -e
+
 composer install
 composer dump-autoload
 
@@ -14,10 +16,10 @@ cd config
 echo "<?php" > config.php
 echo "" >> config.php
 echo "Configure the following environment variables"
-echo "Enter the HOST IP for the database server: "
+echo "Enter the IP for the database server: "
 read DB_HOST
 echo "\$DB_HOST=\"${DB_HOST}\";" >> config.php
-echo "Enter the HOST PORT: "
+echo "Enter the PORT for the database server: "
 read DB_PORT
 echo "\$DB_PORT=\"${DB_PORT}\";" >> config.php
 echo "Enter the name of the database: "
