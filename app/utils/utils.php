@@ -5,7 +5,7 @@ namespace Utils;
 class utils{
     public static function check($checkAdmin){
         session_start();
-        if(isset($_SESSION["Username"])){
+        if(isset($_SESSION["username"])){
             if($checkAdmin == "admin"){
                 if($_SESSION["isAdmin"] == 1){
                     echo "Authorised";

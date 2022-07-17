@@ -14,7 +14,7 @@ class LoginController{
         $row = \Model\User::login($username,$password);
         if (password_verify($password,$row["HASH"])){
             session_start();
-            $_SESSION["Username"] = $username;
+            $_SESSION["username"] = $username;
             $_SESSION["isLoggedIn"] = 1;
             if($username == 'admin'){
                 $_SESSION["isAdmin"] = 1;

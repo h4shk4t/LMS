@@ -24,10 +24,9 @@ class User{
         return $rows;
     }
     public static function getCurrentUser(){
-        session_start();
         $db = DB::get_instance();
         $statement = $db->prepare("SELECT * FROM USERS WHERE USERNAME = (:username)");
-        $statement->execute(array(":username"=>$_SESSION["Username"]));
+        $statement->execute(array(":username"=>$_SESSION["username"]));
         $rows = $statement->fetch();
         return $rows;
     }

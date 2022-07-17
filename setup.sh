@@ -14,7 +14,7 @@ cd config
 echo "<?php" > config.php
 echo "" >> config.php
 echo "Configure the following environment variables"
-echo "Enter the HOST IP: "
+echo "Enter the HOST IP for the database server: "
 read DB_HOST
 echo "\$DB_HOST=\"${DB_HOST}\";" >> config.php
 echo "Enter the HOST PORT: "
