@@ -2,13 +2,13 @@
 
 namespace Controller;
 
-class addBookController{
+class addBookController extends \Admin\Auth{
     public static function get(){
-        \Utils\utils::check(1);
+        //\Utils\utils::check("admin");
         echo \View\Loader::make()->render("templates/add.twig");
     }
     public static function post(){
-        \Utils\utils::check("admin");
+        //\Utils\utils::check("admin");
         $bookName = $_POST["bookName"];
         $author = $_POST["author"];
         $type = $_POST["type"];

@@ -2,9 +2,9 @@
 
 namespace Controller;
 
-class BrowseController{
+class BrowseController extends \User\Auth{
     public static function get(){
-        \Utils\utils::check("user");
+        //\Utils\utils::check("user");
         if($_SESSION["isAdmin"]==1){
             header('Location: /dashboard');
         }

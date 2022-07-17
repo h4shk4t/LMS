@@ -16,7 +16,7 @@ class LoginController{
             session_start();
             $_SESSION["username"] = $username;
             $_SESSION["isLoggedIn"] = 1;
-            if($username == 'admin'){
+            if($username == "admin"){
                 $_SESSION["isAdmin"] = 1;
             }
             else{

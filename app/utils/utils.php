@@ -1,5 +1,6 @@
 <?php
 
+//Not used anymore. Kept for reference in case needed to revert back to using the following methods
 namespace Utils;
 
 class utils{
@@ -7,17 +8,11 @@ class utils{
         session_start();
         if(isset($_SESSION["username"])){
             if($checkAdmin == "admin"){
-                if($_SESSION["isAdmin"] == 1){
-                    echo "Authorised";
-                }
-                else{
+                if($_SESSION["isAdmin"] != 1){
                     echo "Unauthorised";
                     header("Location: /login");
-                    die();
+                    die();                
                 }
-            }
-            else{
-                $_SESSION["isAdmin"] = 0;
             }
         }
         else{

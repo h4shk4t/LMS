@@ -2,9 +2,9 @@
 
 namespace Controller;
 
-class approveReturnController{
+class approveReturnController extends \Admin\Auth{
     public static function get($bookID){
-        \Utils\utils::check("admin");
+        //\Utils\utils::check("admin");
         \Model\Books::approveReturn($bookID);
         header("Location: /list");
     }
