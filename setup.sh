@@ -29,7 +29,7 @@ echo "Enter the username of the mysql server: "
 read DB_USERNAME
 echo "\$DB_USERNAME=\"${DB_USERNAME}\";" >> config.php
 echo "Enter the password for the mysql server: "
-read DB_PASSWORD
+read -s DB_PASSWORD
 echo "\$DB_PASSWORD=\"${DB_PASSWORD}\";" >> config.php
 echo "?>" >> config.php
 
